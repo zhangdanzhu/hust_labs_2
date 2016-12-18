@@ -1,0 +1,12 @@
+int main()
+{
+	int a = 9;
+	float b = 9.0;
+}
+
+int func1()
+{
+	int a = 8;
+	float b = 8.0;
+}
+

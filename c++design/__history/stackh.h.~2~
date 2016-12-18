@@ -1,0 +1,84 @@
+#include "stdio.h"
+
+//=========================面向过程的STACK========================//
+struct POSTK{
+	int  *elems;				//申请内存用于存放栈的元素
+	int   max;					//栈能存放的最大元素个数
+	int   pos;					//栈实际已有元素个数，栈空时pos=0;
+};
+void initPOSTK(POSTK *const p, int m);		//初始化p指的栈：最多m个元素
+void initPOSTK(POSTK *const p, const POSTK&s); //用栈s初始化p指的栈
+int  size (const POSTK *const p);				//返回p指栈的最大元素个数max
+int  howMany (const POSTK *const p);		//返回p指栈的实际元素个数pos
+int  getelem (const POSTK *const p, int x);	//取下标x处的栈元素
+POSTK *const push(POSTK *const p, int e); 	//将e入栈，并返回p值
+POSTK *const pop(POSTK *const p, int &e); 	//出栈到e，并返回p值
+POSTK *const assign(POSTK*const p, const POSTK&s); //赋s给p指的栈，返p值
+void print(const POSTK*const p);				//打印p指向的栈
+void destroyPOSTK(POSTK*const p);			//销毁p指向的栈
+
+//========================面向对象的STACK=========================//
+class OOSTK{
+    int  *const  elems;		//申请内存用于存放栈的元素
+    const  int   max;			//栈能存放的最大元素个数
+    int   pos;					//栈实际已有元素个数，栈空时pos=0;
+public:
+    OOSTK(int m);			//初始化栈：最多m个元素
+    OOSTK(const OOSTK&s);//用栈s拷贝初始化栈
+    int  size ( ) const;			//返回栈的最大元素个数max
+    int  howMany ( ) const;	//返回栈的实际元素个数pos
+    int  getelem (int x) const;	//取下标x处的栈元素
+    OOSTK& push(int e); 		//将e入栈，并返回当前栈
+    OOSTK& pop(int &e); 	//出栈到e，并返回当前栈
+    OOSTK& assign(const OOSTK&s); 	//赋s给栈，并返回被赋值的当前栈
+    void print( ) const;						//打印栈
+    ~OOSTK( );							//销毁栈
+};
+
+//===================运算符重载面向对象的STACK=====================//
+class STACK{
+    int  *const  elems;		//申请内存用于存放栈的元素
+    const  int   max;			//栈能存放的最大元素个数
+    int   pos;					//栈实际已有元素个数，栈空时pos=0;
+public:
+    STACK(int m);				//初始化栈：最多m个元素
+    STACK(const STACK&s); 			//用栈s拷贝初始化栈
+    virtual int  size ( ) const;				//返回栈的最大元素个数max
+    virtual operator int ( ) const;			//返回栈的实际元素个数pos
+    virtual int operator[ ] (int x) const;		//取下标x处的栈元素
+    virtual STACK& operator<<(int e); 	//将e入栈，并返回当前栈
+    virtual STACK& operator>>(int &e);	//出栈到e，并返回当前栈
+    virtual STACK& operator=(const STACK&s); //赋s给当前栈并返回该栈
+    virtual void print( ) const;				//打印栈
+	virtual ~STACK( );						//销毁栈
+};
+
+//====================由2个STACK组成的队列========================//
+class QUE2S{
+    STACK s1, s2;							//一个队列可由两个栈聚合而成
+public:
+    QUE2S(int m);						//初始化队列：每栈最多m个元素
+    QUE2S(const QUE2S &q);			//用队列q拷贝构造新队列
+    operator int ( ) const;					//返回队列的实际元素个数
+    QUE2S& operator<<(int e); 			//将e入队列，并返回当前队列
+    QUE2S& operator>>(int &e);			//出队列到e，并返回当前队列
+    QUE2S& operator=(const QUE2S &q);//赋q给当前队列并返回该队列
+    void print( ) const;						//打印队列
+    ~QUE2S( );							//销毁队列
+};
+
+//======================从STACK继承的队列=========================//
+class QUEIS:  public  STACK{		//STACK作为构成队列的第1个栈
+    STACK  s;						//s作为构成队列的第2个栈
+public:
+    QUEIS(int m);						//初始化队列：每栈最多m个元素
+    QUEIS(const QUEIS &q); 		//用队列q拷贝初始化队列
+    virtual operator int ( ) const;		//返回队列的实际元素个数
+    virtual QUEIS& operator<<(int e); 	//将e入队列，并返回当前队列
+    virtual QUEIS& operator>>(int &e);//出队列到e，并返回当前队列
+    virtual QUEIS& operator=(const QUEIS &q); //赋q给队列并返回该队列
+    virtual void print( ) const;			//打印队列
+    virtual ~QUEIS( );					//销毁队列
+};
+
+

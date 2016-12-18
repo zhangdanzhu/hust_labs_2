@@ -1,0 +1,60 @@
+struct aaa {
+	int a;
+	float b;
+	struct bbb {
+		int a;
+		float b;
+	}c,d;
+};
+
+int a;
+float b;
+struct aaa b;
+struct aaa c;
+int a;
+int aarray[4][5];
+float barray[1];
+struct aaa carray[7][8];
+
+
+int func1(int aa, int b, struct aaa cc)
+{
+	int a;
+	int aa;
+	int b;
+	float bbb;
+	3 = a;
+	a = bbb;
+	return bbb;
+}
+
+float func1()
+{
+	a = 2;
+
+}
+
+int func2()
+{
+	float bb;
+	struct aaa func2b;
+	struct aaa func2c;
+	func2b.c.a = 9;
+	func2b.c.b = 8;
+	a.a = 6;
+	mmm = 78;	
+	func2b =func2c;
+	3 = a;
+	carray = 9.8;
+	carray[1] = func2b;
+	carray[3][2] = func2b;
+	carray[1][2][3] = func2b;
+	aarray = 7777777;
+	aarray[4.5] = 8;
+	aarray[1] = 9;
+	aarray[2][3] = 9;
+	aarray[2][3] = 9.8;
+	return 9;
+	a[1][2][3] = 9;
+}
+

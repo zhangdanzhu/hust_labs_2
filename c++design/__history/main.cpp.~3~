@@ -1,0 +1,8 @@
+#include "stackh.h"
+
+int main(int argv, char *argc[])
+{
+	OOSTK p = new OOSTK(3);
+	p.print();
+	return 0;
+}

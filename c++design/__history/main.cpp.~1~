@@ -1,0 +1,8 @@
+#include "stackh.h"
+
+int main(int argv, char *argc[])
+{
+	POSTK *const p;
+	initPOSTK(p, 5);
+	return 0;
+}

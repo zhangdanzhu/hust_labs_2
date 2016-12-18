@@ -1,0 +1,31 @@
+struct aaa {
+	int a;
+	float b;
+	struct {
+		int a;
+		float b;
+	}c;
+};
+
+struct bbb {
+	int d;
+	float e;
+};
+
+struct aaa m;
+
+int main()
+{
+	struct bbb n;
+	int a;
+	float b;
+	a = m.a;
+	a = m.b;
+	a = m.c.a;
+	a = m.c.b;
+	n = m;
+	n = m.c;
+	n.e = m.a;
+	n.e = m.b;
+	return m.c.b;
+}

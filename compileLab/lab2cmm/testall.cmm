@@ -1,0 +1,16 @@
+struct aaa{
+	int a;
+	struct v{
+		int a;
+	}b;
+}b;
+
+
+
+int main()
+{
+	int a;
+	a = b.a;
+	a = b.b.a;
+	return 0;
+}

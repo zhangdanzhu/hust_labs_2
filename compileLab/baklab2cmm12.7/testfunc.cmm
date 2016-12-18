@@ -1,0 +1,30 @@
+struct aaa {
+	int a;
+	float b;
+};
+
+struct bbb {
+	int a;
+	int b;
+};
+
+int fun1(int a, float b, struct aaa c)
+{
+	return 0;
+}
+
+int main()
+{
+	int a;
+	float b;
+	struct aaa c;
+	struct bbb d;
+	a = fun1(a, b, c);
+	b = fun1(a, b, c);
+	c = fun1(a, b, c);
+	a = fun1(a, b);
+	a = fun1(a, b, c, a, b);
+	a = fun1(b, a, d);
+	a = fun1(b);
+	return a;
+}

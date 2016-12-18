@@ -1,0 +1,17 @@
+struct e{
+	int ea;
+	float eb;
+};
+
+int main()
+{
+	int a = 78;
+	float b = 78.9;
+	int c = 0x10, d = 010;
+	return 0;
+	e.eb = 5.8E+3;
+	if (a)
+	{
+		a = a + 1;
+	}
+}

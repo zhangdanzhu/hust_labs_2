@@ -1,0 +1,12 @@
+第1层作用域：
+name: a	type: 0
+第2层作用域：
+name: a	type: 0
+第1层作用域：
+name: b	type: 4
+第0层作用域：
+name: b	type: 4
+第1层作用域：
+name: a	type: 0
+第0层作用域：
+name: main	type: 3

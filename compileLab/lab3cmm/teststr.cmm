@@ -1,0 +1,8 @@
+int main()
+{
+	if (a == 8)
+	{
+		i = 2;
+		float a = 8;
+	}
+}
