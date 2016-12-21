@@ -7,10 +7,13 @@ int main(int argc, char *argv[])
 	unsigned short array[2]={NUM,0};
 	sem_args.array = array;
 	
-	// 创建共享内存
+	// 创建共享内存组
 	int i;
-	int shmid;
-	shmid = shmget(SHMKEY, sizeof(struct shm_st) * NUM, IPC_CREAT|0666);
+	int shmid[NUM];
+	for (i = 0; i < NUM; i++)
+	{
+		shmid[i] = shmget((key_t)(i+1000), sizeof(struct shm_st), IPC_CREAT|0666);
+	}
 
 	// 创建信号灯
 	semid = semget(SEMKEY, 2, IPC_CREAT|0666);
@@ -44,6 +47,9 @@ int main(int argc, char *argv[])
 	// 删除信号灯
 	semctl(semid, 2, IPC_RMID);
 	// 删除共享内存组
-	shmctl(shmid, IPC_RMID, NULL);
+	for (i = 0; i < NUM; i++)
+	{
+		shmctl(shmid[i], IPC_RMID, NULL);
+	}
 	return 0;
 }

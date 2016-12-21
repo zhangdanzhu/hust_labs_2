@@ -24,7 +24,7 @@ void all_paths(int *COST, int *A, int n)
 	for (k = 0; k < n; k++) // 对最高下标为k的结点路径
 	{
 		// 对于所有可能的结点对
-		for (i = 0; j < n; i++)
+		for (i = 0; i < n; i++)
 		{
 			for (j = 0; j < n; j++)
 			{
@@ -72,7 +72,7 @@ int main(int argc, int *argv[])
 	COST = a;
 	
 	all_paths(COST, A, n);
-	printf("start\tend\tlength\tnodes list\n");
+	printf("start\tend\tlength\n");
 	for (v = 0; v < n; v++)
 	{
 		for (i = 0; i < n; i++)
