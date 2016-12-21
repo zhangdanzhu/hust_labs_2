@@ -27,7 +27,7 @@ int select2(int *A, int m, int p, int k, int r)
 			// 计算中间值
 			insertionsort(A, m + (i-1) * r, m + i * r - 1);
 			// 将中间值收集到A[m, p]的前部
-			interchange(&A[m+i-1], &A[m + (i-1) * r + (int)floor((double)r/2) - 1]);
+			interchange(&A[m+i-1], &A[m + (i-1) * r + (int)ceil((double)r/2) - 1]);
 		}
 		// 二次取中
 		j = select2(A, m, m + floor((double)n/r) - 1, ceil(floor((double)n/r) / 2), r);
