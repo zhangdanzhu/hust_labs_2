@@ -8,7 +8,6 @@ int main(int argc, char *argv[])
 	int i;
 	struct shm_st *buffers;
 	int shmid;
-	int finish = 0;
 	semid = semget(SEMKEY, 2, IPC_CREAT|0666);
 
 	// 获取共享内存组
@@ -20,13 +19,13 @@ int main(int argc, char *argv[])
 	if (NULL == sfp)
 	{
 		printf("Fail to open source file!\n");
-		buffers[0].num = -1;
+		buffers[0].num = 0;
 		V(semid, 1);
 		exit(EXIT_FAILURE);
 	}
 
 	i = 0;
-	while (!finish)
+	while (1)
 	{
 		P(semid, 0); // 有空的缓冲区才读入
 		if ((buffers[i].num = fread(buffers[i].text, sizeof(char), TEXT_SIZE, sfp)) != 0)		// 未读完
@@ -36,8 +35,8 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			finish = 1;
 			V(semid, 1);
+			break ;
 		}
 	}
 
