@@ -4,6 +4,10 @@ name: b	type: 1
 第0层作用域：
 name: main	type: 3
 第1层作用域：
+name: m	type: 0
+name: n	type: 1
+name: m	type: 0
+name: n	type: 1
 name: a	type: 0
 name: b	type: 1
 第0层作用域：

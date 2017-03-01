@@ -23,8 +23,9 @@ struct InterCode
 	union
 	{
 		struct {Operand right, left; } assign;	   
-		struct {Operand result, op1, op2; } binop; // 双目运算
-		struct {Operand result, op; } sinop;	   // 单目运算	
+		struct {Operand result, op1, op2; } triop; 
+		struct {Operand result, op; } binop;
+		struct {Operand result;} sinop;	   	
 		struct {Operand op; } ret;
 		struct {char *name; } label;
 		struct {char *name; } goto_label;
@@ -46,8 +47,13 @@ typedef struct InterCodes {
 
 
 char *newLabel(); 
+Operand newVar();
 InterCode newInterCode();
 InterCodes *insertLink(InterCode intercode);
+void translateVarList(gramtree *varlist);
+void translateParamDec(gramtree *paramdec);
+char *translateVarDec(gramtree *vd, int size);
+void translateExp(gramtree *exp, Operand operand);
 void translateFunDec(gramtree *fundec);
 void outputFile(char *filename);
 void generateCode(FILE *f, InterCode interCode);

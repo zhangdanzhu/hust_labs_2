@@ -39,7 +39,7 @@
 /* High-level Definition */
 Program : ExtDefList  { 
 			$$ = Create_Node(0, "Program", 1, $1);
-			/* if (NOERROR) PreOrder_Traverse($$, 0);*/ 
+			if (NOERROR) PreOrder_Traverse($$, 0); 
 			if (FindSym("main", 0, 0) == NULL || FindSym("main", 0, 0)->type0 != 3)
 			{
 				printf("Error type 18: undefined function 'main'\n");

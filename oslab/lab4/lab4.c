@@ -100,7 +100,7 @@ void printdir(char *dir, int depth)
 	struct passwd *u_info;
 	struct group *g_info;
 	char *timebuf;
-	if ((dp = opendir(dir)) == NULL)	// 打开文件失败
+	if ((dp = opendir(dir)) == NULL)	// 打开目录失败
 	{
 		printf("Fail to open dir!");
 		return ;

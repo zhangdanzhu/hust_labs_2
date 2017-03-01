@@ -1,0 +1,10 @@
+第1层作用域：
+name: a	type: 0
+name: b	type: 1
+第0层作用域：
+name: main	type: 3
+第1层作用域：
+name: a	type: 0
+name: b	type: 1
+第0层作用域：
+name: func1	type: 3

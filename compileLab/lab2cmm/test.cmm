@@ -3,11 +3,8 @@ struct e{
 	float eb;
 };
 
-struct e k;
-
 int main()
 {
-	int a = 78;
 	float b = 78.9;
 	int c = 0x10, d = 010;
 	return 0;

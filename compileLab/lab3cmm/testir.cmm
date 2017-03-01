@@ -4,7 +4,7 @@ int main()
 	float b = 9.0;
 }
 
-int func1()
+int func1(int m, float n)
 {
 	int a = 8;
 	float b = 8.0;

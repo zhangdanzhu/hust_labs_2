@@ -1,2 +1,4 @@
 FUNCTION main :
 FUNCTION func1 :
+PARAM m
+PARAM n

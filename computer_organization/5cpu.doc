@@ -1,0 +1,1 @@
+2.13 问题：存储半字会将另半字覆盖，如何解决？regdist  加 2 个 srav   xoralusrc   加  shalucontrol  更改memwrite  加 sh问题   regwrite漏改 需加srav和xor2.14想：大于零跳转是否可以不通过ALU？
